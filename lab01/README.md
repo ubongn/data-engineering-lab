@@ -40,7 +40,6 @@ The lab now includes:
 From `labs/lab01`:
 
 ```powershell
-cd c:\Users\Ubong\Desktop\data\class-work\labs\lab01
 py -3 -m src.pipeline --input data/*.csv --output output
 ```
 
