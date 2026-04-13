@@ -1,0 +1,11 @@
+order_id,customer_name,amount,order_date,status
+1001,Acme Corp,250.00,2026-01-15,completed
+1002,Beta Inc,-50.00,2026-01-16,refunded
+1003,Gamma LLC,,2026-01-17,completed
+1004,,180.00,2026-02-01,shipped
+1005,Delta Co,320.00,invalid_date,completed
+1006,Acme Corp,150.00,2026-02-10,completed
+1007,Epsilon Ltd,0.00,2026-02-15,cancelled
+1008,Acme Corp,999.99,2026-03-01,completed
+1009,Zeta Inc,75.00,2026-03-05,
+1010,Acme Corp,200.00,2026-03-10,completed
