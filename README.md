@@ -11,7 +11,7 @@ This repository contains data engineering lab exercises, including an order data
   - `output/` — example output files produced by the lab
   - `output_test/` — expected output files for lab validation
   - `README.md` — lab-specific documentation
-- `lab02/` — additional lab work (not documented here yet)
+- `lab02/` — API ingestion and parquet pipeline with Bronze/Silver/Gold layers
 
 ## Lab 01
 
@@ -28,13 +28,13 @@ The first lab builds a CSV-based order processing pipeline that:
 From the `lab01` folder, use Python to run the pipeline:
 
 ```powershell
-py -3 -m src.pipeline --input data/*.csv --output output
+python -m src.pipeline --input data/*.csv --output output
 ```
 
 Or process an entire input directory:
 
 ```powershell
-py -3 -m src.pipeline --input data --output output
+python -m src.pipeline --input data --output output
 ```
 
 ### Run tests
@@ -42,9 +42,42 @@ py -3 -m src.pipeline --input data --output output
 From the `lab01` folder:
 
 ```powershell
-py -3 -m pytest tests -v
+python -m pytest tests -v
+```
+
+## Lab 02
+
+The second lab builds an API ingestion pipeline that:
+
+- extracts users, posts, and comments from a public API
+- writes Bronze parquet files to `output/bronze`
+- transforms the data into a Silver parquet file
+- builds a Gold user summary parquet file
+- supports `--skip-extract` to reuse existing Bronze files
+- includes data quality checks and memory optimizations
+
+### Run Lab 02
+
+From the `lab02` folder:
+
+```powershell
+python -m src.pipeline.py
+```
+
+To rerun only transforms and gold generation with existing bronze data:
+
+```powershell
+python -m src.pipeline.py --skip-extract
+```
+
+### Run Lab 02 tests
+
+From the `lab02` folder:
+
+```powershell
+python -m pytest tests -v
 ```
 
 ## Notes
 
-This workspace is organized for data lab exercises. Use the `lab01/README.md` file for more specific details on the order pipeline implementation and file outputs.
+This workspace is organized for data lab exercises. Use each lab's own `README.md` file for lab-specific details and expected outputs.
